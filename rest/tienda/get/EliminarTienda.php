@@ -1,8 +1,9 @@
 <?php
 //API para eliminar una tienda por medio del ID
 declare(strict_types=1);
-require $_SERVER['DOCUMENT_ROOT'] . "/utils/CONSULTAS.php";
-require $_SERVER['DOCUMENT_ROOT'] . "/utils/RESPUESTAS.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/utils/CONSULTAS.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/utils/RESPUESTAS.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/rest/Header.php";
 
 //Si la petición HTTP es de tipo POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
