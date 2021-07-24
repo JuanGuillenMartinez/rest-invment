@@ -9,9 +9,9 @@ class RESPUESTAS
         //Convierte el array en un JSON
         $datos = json_encode(
             array(
-                'respuesta' => '200',
-                'estado' => 'Se obtuvieron los datos correctamente',
-                'datos' => $respuesta
+                'response' => '200',
+                'status' => 'Se obtuvieron los datos correctamente',
+                'data' => $respuesta
             )
         );
         //Devuelve el string codificado a formato JSON
@@ -24,10 +24,10 @@ class RESPUESTAS
         $respuestaError = json_encode(
             array(
                 //Obtiene el código de respuesta de la excepción
-                'respuesta' => $e->getCode(),
-                'estado' => 'Ocurrió un error, inténtelo mas tarde',
+                'response' => $e->getCode(),
+                'status' => 'Ocurrió un error, inténtelo mas tarde',
                 //Obtiene el mensaje de la excepción
-                'error' => $e->getMessage()
+                'data' => $e->getMessage()
             )
         );
         //Devuelve el string codificado a formato JSON
@@ -39,9 +39,9 @@ class RESPUESTAS
     {
         $mensaje = json_encode(
             array(
-                'respuesta' => $codigo,
-                'estado' => $mensaje,
-                'datos' => $data
+                'response' => $codigo,
+                'status' => $mensaje,
+                'data' => $data
             )
         );
         //Devuelve el string codificado a formato JSON
