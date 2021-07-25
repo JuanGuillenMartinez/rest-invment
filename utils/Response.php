@@ -1,7 +1,7 @@
 <?php
 //Clase para el manejo de las respuestas a las peticiones HTTP
 declare(strict_types=1);
-class RESPUESTAS
+class Response
 {
     //Recibe como parámetro la respuesta obtenida por la consulta y devuelve un string en formato JSON con la información de la respuesta
     public static function respuestaAJson(array $respuesta): string
@@ -10,7 +10,7 @@ class RESPUESTAS
         $datos = json_encode(
             array(
                 'response' => '200',
-                'status' => 'Se obtuvieron los datos correctamente',
+                'status' => 'An error ocurred, try later',
                 'data' => $respuesta
             )
         );
@@ -25,7 +25,7 @@ class RESPUESTAS
             array(
                 //Obtiene el código de respuesta de la excepción
                 'response' => $e->getCode(),
-                'status' => 'Ocurrió un error, inténtelo mas tarde',
+                'status' => 'An error ocurred, try later',
                 //Obtiene el mensaje de la excepción
                 'data' => $e->getMessage()
             )

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 require $_SERVER['DOCUMENT_ROOT']."/utils/Database.php";
 
-class CONSULTAS
+class Request
 {
 	function _construct()
 	{
@@ -37,8 +37,12 @@ class CONSULTAS
 		$resultado = Database::getInstance()->getDb()->prepare($consulta);
         //array de datos, la posicion de los '?' debe ser en el mismo orden de la posición de los elementos del array
 		$resultado->execute($datos); 
+		$registrosModificados = $resultado->rowCount();
+		$mensaje = ($registrosModificados>0 ? "Rows modified successfully" : "Rows were not modified");
         //Retorna un array asociativo con la cantidad de registros afectados por la consulta
-        return array("registros_afectados" => $resultado->rowCount());
+        return array("rows_affected" => $registrosModificados,
+					 "message" => $mensaje
+					);
 	}
 
 }
