@@ -14,11 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 				$consulta,
 				$parametros
 			);
-			echo Response::mensajeAJson("200", "Successfully completed query", $respuesta);
+			echo Response::messageToJson("200", "Successfully completed query", $respuesta);
 		} else {
 			header("HTTP/1.0 405 Parameters are empty");
 		}
 	} catch (PDOException $e) {
-		echo Response::errorAJson($e);
+		echo Response::errorToJson($e);
 	}
 }
