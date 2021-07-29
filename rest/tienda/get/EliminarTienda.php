@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$idTienda = intval($_GET["idTienda"]);
 	try {
 		if (!Utils::parametersAreEmpty(array($idTienda))) {
-			$consulta = "DELETE FROM tiendas WHERE id_tienda = ?";
+			$consulta = "UPDATE tiendas SET estatus = 'inactivo' WHERE id_tienda = ?";
 			$parametros = array($idTienda);
 			$respuesta = Request::consultaCudParametros(
 				$consulta,

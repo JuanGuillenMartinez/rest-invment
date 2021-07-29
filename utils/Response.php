@@ -10,7 +10,7 @@ class Response
         $datos = json_encode(
             array(
                 'response' => '200',
-                'status' => 'An error ocurred, try later',
+                'status' => 'Request successfully executed',
                 'data' => $respuesta
             )
         );
